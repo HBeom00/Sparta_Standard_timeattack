@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./components/Button";
+import Input from "./components/Input";
 
 const List = () => {
   const [list, setList] = useState([]);
@@ -58,30 +59,12 @@ const List = () => {
   return (
     <>
       <div>
-        <input
-          type="text"
-          placeholder="국가명을 입력하세요"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="금메달 개수를 입력하세요"
-          value={goldMd}
-          onChange={(e) => setGold(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="은메달 개수를 입력하세요"
-          value={silverMd}
-          onChange={(e) => setSilver(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="동메달 개수를 입력하세요"
-          value={bronzeMd}
-          onChange={(e) => setBronze(e.target.value)}
-        />
+        <Input state={name} setState={setName}>
+          국가명
+        </Input>
+        <Input state={goldMd} setState={setGold} />
+        <Input state={silverMd} setState={setSilver} />
+        <Input state={bronzeMd} setState={setBronze} />
         <Button onClick={addBtn} style={{ border: "1px solid blue" }}>
           추가
         </Button>
